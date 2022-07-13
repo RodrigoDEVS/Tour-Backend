@@ -8,7 +8,7 @@ public interface EquipoService {
 
     public Flux<Equipo> findAll();
 
-    public Mono<Equipo> findByCountry(String country);
+    public Flux<Equipo> findByCountry(String country);
 
     public Mono<Equipo> save(Equipo equipo);
 
