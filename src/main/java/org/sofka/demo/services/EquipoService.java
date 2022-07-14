@@ -8,6 +8,8 @@ public interface EquipoService {
 
     public Flux<Equipo> findAll();
 
+    public Mono<Equipo> findByid(String id);
+
     public Flux<Equipo> findByCountry(String country);
 
     public Mono<Equipo> save(Equipo equipo);

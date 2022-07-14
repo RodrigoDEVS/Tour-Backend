@@ -19,6 +19,11 @@ public class EquipoServiceImpl implements EquipoService{
     }
 
     @Override
+    public Mono<Equipo> findByid(String id) {
+        return equipoRepository.findById(id);
+    }
+
+    @Override
     public Flux<Equipo> findByCountry(String country) {
         return equipoRepository.findByCountry(country);
     }
