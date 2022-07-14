@@ -4,12 +4,11 @@ import org.sofka.demo.models.Ciclista;
 import org.sofka.demo.models.Equipo;
 import org.sofka.demo.services.CiclistaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 import java.net.URI;
@@ -41,5 +40,36 @@ public class CiclistaController {
             });
         });
     }
+
+    /*Metodo para Obtener los ciclistas*/
+    @GetMapping
+    public Mono<ResponseEntity<Flux<Ciclista>>> listarCiclistas(){
+        return Mono.just(ResponseEntity.ok()
+                .contentType(MediaType.APPLICATION_JSON)
+                .body(service.findAll()));
+    }
+
+    @PutMapping("/{id}")
+    public Mono<ResponseEntity<Ciclista>> editarCiclista(@RequestBody Ciclista ciclista, @PathVariable String id){
+        return service.findById(id).flatMap(element -> {
+                    element.setName(ciclista.getName());
+                    element.setNumber(ciclista.getNumber());
+                    element.setTeamCode(ciclista.getTeamCode());
+                    element.setNationality(ciclista.getNationality());
+
+                    return service.save(element);
+                }).map(element -> ResponseEntity.created(URI.create("/api/cyclists".concat(element.getId())))
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(element))
+                .defaultIfEmpty(ResponseEntity.notFound().build());
+    }
+
+    @DeleteMapping("/{id}")
+    public Mono<ResponseEntity<Void>> eliminarCiclista(@PathVariable String id){
+        return service.findById(id).flatMap(element -> {
+            return service.delete(element).then(Mono.just(new ResponseEntity<Void>(HttpStatus.NO_CONTENT)));
+        }).defaultIfEmpty(new ResponseEntity<Void>(HttpStatus.NOT_FOUND));
+    }
+
 
 }
