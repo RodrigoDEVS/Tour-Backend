@@ -71,5 +71,21 @@ public class CiclistaController {
         }).defaultIfEmpty(new ResponseEntity<Void>(HttpStatus.NOT_FOUND));
     }
 
+    /*Metodo para consultar ciclistas por codigo de equipo */
+    @GetMapping("/{teamCode}")
+    public Mono<ResponseEntity<Flux<Ciclista>>> listarCiclistasByTeamCode(@PathVariable String teamCode){
+        return Mono.just(ResponseEntity.ok()
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(service.findByTeamCode(teamCode)))
+                .defaultIfEmpty(ResponseEntity.notFound().build());
+    }
 
+    /*Metodo para consultar ciclistas por nacionalidad */
+    @GetMapping("/nationality/{nationality}")
+    public Mono<ResponseEntity<Flux<Ciclista>>> listarCiclistasByNacionalidad(@PathVariable String nationality){
+        return Mono.just(ResponseEntity.ok()
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .body(service.findByNationality(nationality)))
+                .defaultIfEmpty(ResponseEntity.notFound().build());
+    }
 }
