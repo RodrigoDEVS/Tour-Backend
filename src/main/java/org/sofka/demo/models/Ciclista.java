@@ -11,7 +11,7 @@ public class Ciclista {
     @Id
     private String id;
     private String name;
-    private String number;
+    private Integer number;
     private String teamCode;
     private String nationality;
 }
