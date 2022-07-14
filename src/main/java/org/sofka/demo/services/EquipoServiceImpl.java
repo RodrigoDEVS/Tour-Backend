@@ -11,25 +11,25 @@ import reactor.core.publisher.Mono;
 public class EquipoServiceImpl implements EquipoService{
 
     @Autowired
-    private EquipoRepository equipoRepo;
+    private EquipoRepository equipoRepository;
 
     @Override
     public Flux<Equipo> findAll() {
-        return equipoRepo.findAll();
+        return equipoRepository.findAll();
     }
 
     @Override
     public Flux<Equipo> findByCountry(String country) {
-        return equipoRepo.findByCountry(country);
+        return equipoRepository.findByCountry(country);
     }
 
     @Override
     public Mono<Equipo> save(Equipo equipo) {
-        return equipoRepo.save(equipo);
+        return equipoRepository.save(equipo);
     }
 
     @Override
     public Mono<Void> delete(Equipo equipo) {
-        return equipoRepo.delete(equipo);
+        return equipoRepository.delete(equipo);
     }
 }

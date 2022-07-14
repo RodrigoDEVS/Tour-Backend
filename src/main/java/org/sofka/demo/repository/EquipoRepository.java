@@ -4,7 +4,7 @@ import org.sofka.demo.models.Equipo;
 import org.springframework.data.mongodb.repository.ReactiveMongoRepository;
 import reactor.core.publisher.Flux;
 
-public interface EquipoRepository extends ReactiveMongoRepository {
+public interface EquipoRepository extends ReactiveMongoRepository<Equipo, String> {
 
     Flux<Equipo> findByCountry(String country);
 }
