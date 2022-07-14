@@ -7,4 +7,6 @@ import reactor.core.publisher.Flux;
 public interface CiclistaRepository extends ReactiveMongoRepository<Ciclista, String> {
 
     Flux<Ciclista> findByTeamCode(String teamCode);
+
+    Flux<Ciclista> findByNationality(String nationality);
 }

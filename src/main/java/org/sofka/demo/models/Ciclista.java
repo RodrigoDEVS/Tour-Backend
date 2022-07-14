@@ -13,5 +13,5 @@ public class Ciclista {
     private String name;
     private String number;
     private String teamCode;
-    private String country;
+    private String nationality;
 }
