@@ -29,11 +29,11 @@ public class EquipoController {
                 .body(service.findAll()));
     }
 
-    @GetMapping("/{country}")
-    public Flux<ResponseEntity<Equipo>> verDetallesEquipo(@PathVariable String country){
-        return service.findByCountry(country).map(element -> ResponseEntity.ok()
+    @GetMapping("/country/{country}")
+    public Mono<ResponseEntity<Flux<Equipo>>> verDetallesEquipo(@PathVariable String country){
+        return Mono.just(ResponseEntity.ok()
                 .contentType(MediaType.APPLICATION_JSON)
-                .body(element))
+                .body(service.findByCountry(country)))
                 .defaultIfEmpty(ResponseEntity.notFound().build());
     }
 
