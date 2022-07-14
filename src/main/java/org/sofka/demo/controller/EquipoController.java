@@ -3,6 +3,7 @@ package org.sofka.demo.controller;
 import org.sofka.demo.models.Equipo;
 import org.sofka.demo.services.EquipoService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -65,5 +66,12 @@ public class EquipoController {
                     .contentType(MediaType.APPLICATION_JSON)
                     .body(element))
                     .defaultIfEmpty(ResponseEntity.notFound().build());
+    }
+
+    @DeleteMapping("{id}")
+    public Mono<ResponseEntity<Void>> eliminarEquipo(@PathVariable String id){
+        return service.findByid(id).flatMap(element -> {
+            return service.delete(element).then(Mono.just(new ResponseEntity<Void>(HttpStatus.NO_CONTENT)));
+        }).defaultIfEmpty(new ResponseEntity<Void>(HttpStatus.NOT_FOUND));
     }
 }
