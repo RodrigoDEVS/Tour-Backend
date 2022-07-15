@@ -10,8 +10,8 @@ Rodrigo Gallego Arboleda
 endpoint: http://localhost:8080/api/teams/registro
 JSON: 
 {
-    "name": "Los Fantasmas del Caribe",
-    "teamCode": "07G",
-    "country": "Francia"
+    "name": String,
+    "teamCode": String,
+    "country": String
 }
 
