@@ -5,6 +5,7 @@ API Rest para los equipos de ciclismo y sus ciclistas
 Rodrigo Gallego Arboleda
 
 ## Instrucciones
+La API se despliega en el puerto http://localhost:8080 y se encuentra enlazada a una base de datos no relacional para pruebas.
 
 ### Crear Equipo
 Método: POST
@@ -28,7 +29,7 @@ Método: GET
 
 endpoint: http://localhost:8080/api/teams/country/Indicar_Pais
 
-### Obtener Los Equipos Por País
+### Editar Equipo
 Método: GET
 
 endpoint: http://localhost:8080/api/teams/Indicar_id
