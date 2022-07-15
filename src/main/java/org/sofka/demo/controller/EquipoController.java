@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.Date;
 import java.util.HashMap;
@@ -38,7 +39,7 @@ public class EquipoController {
     }
 
     @PostMapping("/registro")
-    public Mono<ResponseEntity<Map<String, Object>>> guardarEquipo(@RequestBody Mono<Equipo> equipoMono){
+    public Mono<ResponseEntity<Map<String, Object>>> guardarEquipo(@Valid @RequestBody Mono<Equipo> equipoMono){
         Map<String, Object> resp = new HashMap<>();
 
         return equipoMono.flatMap(equipo -> {

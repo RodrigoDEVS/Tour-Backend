@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
+import javax.validation.Valid;
 import java.net.URI;
 import java.util.Date;
 import java.util.HashMap;
@@ -25,7 +26,7 @@ public class CiclistaController {
 
     /*Metodo para Agregar Ciclistas*/
     @PostMapping("/registro")
-    public Mono<ResponseEntity<Map<String, Object>>> guardarCiclista(@RequestBody Mono<Ciclista> ciclistaMono){
+    public Mono<ResponseEntity<Map<String, Object>>> guardarCiclista(@Valid @RequestBody Mono<Ciclista> ciclistaMono){
         Map<String, Object> resp = new HashMap<>();
 
         return ciclistaMono.flatMap(ciclista -> {
