@@ -27,3 +27,15 @@ endpoint: http://localhost:8080/api/teams
 Método: GET
 
 endpoint: http://localhost:8080/api/teams/country/Indicar_Pais
+
+### Obtener Los Equipos Por País
+Método: GET
+
+endpoint: http://localhost:8080/api/teams/Indicar_id
+
+JSON: 
+{
+    "name": String,
+    "teamCode": String,
+    "country": String
+}
