@@ -30,7 +30,7 @@ Método: GET
 endpoint: http://localhost:8080/api/teams/country/Indicar_Pais
 
 ### Editar Equipo
-Método: GET
+Método: PUT
 
 endpoint: http://localhost:8080/api/teams/Indicar_id
 
@@ -40,3 +40,9 @@ JSON:
     "teamCode": String,
     "country": String
 }
+
+### Eliminar Equipo
+Método: DELETE
+
+endpoint: http://localhost:8080/api/teams/Indicar_id
+
