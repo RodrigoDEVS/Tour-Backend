@@ -5,7 +5,6 @@ API Rest para los equipos de ciclismo y sus ciclistas
 Rodrigo Gallego Arboleda
 
 ### Instrucciones
-
 Si deseas consultar uno de estos servicios haz click sobre el
 para entrar a la aplicacion puedes regitrarte con correo y contraseña o  si  deseas puedes logearte con google, despues de haber hecho este 
 paso te llevara a la pagina de las preguntas alli podras crear preguntas de cualquier tipo y ademas podras responder a las ya existentes en la pagina
