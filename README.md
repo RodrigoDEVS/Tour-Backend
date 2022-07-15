@@ -10,7 +10,9 @@ Rodrigo Gallego Arboleda
 Método: POST
 
 endpoint: http://localhost:8080/api/teams/registro
+
 JSON: 
+
 {
     "name": String,
     "teamCode": String,
