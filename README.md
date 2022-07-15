@@ -21,8 +21,10 @@ JSON:
 
 ### Obtener Todos Los Equipos
 Método: GET
+
 endpoint: http://localhost:8080/api/teams
 
 ### Obtener Los Equipos Por País
 Método: GET
+
 endpoint: http://localhost:8080/api/teams/country/Colombia
