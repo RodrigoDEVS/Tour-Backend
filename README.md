@@ -46,3 +46,48 @@ Método: DELETE
 
 endpoint: http://localhost:8080/api/teams/Indicar_id
 
+### Agreagr Ciclista
+Método: POST
+
+endpoint: http://localhost:8080/api/cyclists/registro
+
+JSON: 
+{
+    "name": String,
+    "number": Integer,
+    "teamCode": String,
+    "nationality": String
+}
+
+### Obtener Todos Los Ciclistas
+Método: GET
+
+endpoint: http://localhost:8080/api/cyclists
+
+### Editar Ciclista
+Método: PUT
+
+endpoint: http://localhost:8080/api/cyclists/Indicar_id
+
+JSON: 
+{
+    "name": String,
+    "number": Integer,
+    "teamCode": String,
+    "nationality": String
+}
+
+### Eliminar Ciclista
+Método: DELETE
+
+endpoint: http://localhost:8080/api/cyclists/Indicar_id
+
+### Obtener Los Ciclistas por el Código del Equipo
+Método: GET
+
+endpoint: http://localhost:8080/api/cyclists/Indicar_teamCode
+
+### Obtener Los Ciclistas por su Nacionalidad
+Método: GET
+
+endpoint: http://localhost:8080/api/cyclists/nationality/Indicar_nacionalidad
