@@ -12,7 +12,6 @@ Método: POST
 endpoint: http://localhost:8080/api/teams/registro
 
 JSON: 
-
 {
     "name": String,
     "teamCode": String,
@@ -27,4 +26,4 @@ endpoint: http://localhost:8080/api/teams
 ### Obtener Los Equipos Por País
 Método: GET
 
-endpoint: http://localhost:8080/api/teams/country/Colombia
+endpoint: http://localhost:8080/api/teams/country/Indicar_Pais
